@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>画像表示テスト</title>
+  </head>
+  <body>
+    <p>画像A</p>
+    <img src="" id="preview1">
+    <input type="file" accept="image/*" id="getfile1">
+    <script>
+      var file1 = document.querySelector('#getfile1');
+      
+      file1.onchange = function (){
+        var fileList = file1.files;
+        //読み込み
+        var reader = new FileReader();
+        reader.readAsDataURL(fileList[0]); 
+      
+        //読み込み後
+        reader.onload = function  () {
+          document.querySelector('#preview1').src = reader.result;
+        };
+      };
+    </script>
+
+    <p>画像B</p>
+    <img src="" id="preview2">
+    <input type="file" accept="image/*" id="getfile2">
+    <script>
+      var file2 = document.querySelector('#getfile2');
+      
+      file2.onchange = function (){
+        var fileList = file2.files;
+        //読み込み
+        var reader = new FileReader();
+        reader.readAsDataURL(fileList[0]); 
+      
+        //読み込み後
+        reader.onload = function  () {
+          document.querySelector('#preview2').src = reader.result;
+        };
+      };
+    </script>
+  </body>
+</html>
