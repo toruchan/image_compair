@@ -2,15 +2,39 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>画像表示テスト</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>画像比較さんぷる</title>
   </head>
   <body>
-    <p>画像A</p>
-    <img src="" id="preview1">
-    <input type="file" accept="image/*" id="getfile1">
-    <script>
+
+    <!-- タブメニュー -->
+    <input id="mkdir" type="radio" name="tab_item" checked>
+    <label class="tab_item" for="mkdir">フォルダ作成</label>
+    <input id="compair" type="radio" name="tab_item">
+    <label class="tab_item" for="compair">単体比較</label>
+    <input id="multi_compair" type="radio" name="tab_item">
+    <label class="tab_item" for="multi_compair">複数比較</label>
+
+    <div class="tab_content" id="mkdir_content">
+      <h1>フォルダ作成</h1>
+      <p>パス：
+        <input type="text" name="path" value="" size="100" />
+      </p>
+      <p>ディレクトリ名：
+        <input type="text" name="dir_name" value="" size="50"/>
+      </p>
+      <input type="submit" value="送信">
+      <input type="reset" value="取消">
+    </div>
+
+    <div class="tab_content" id="compair_content">
+      <h1>一枚比較</h1>
+      <p>画像A</p>
+      <img src="" id="preview1">
+      <input type="file" accept="image/*" id="getfile1">
+      <script>
       var file1 = document.querySelector('#getfile1');
-      
+
       file1.onchange = function (){
         var fileList = file1.files;
         //読み込み
@@ -22,14 +46,14 @@
           document.querySelector('#preview1').src = reader.result;
         };
       };
-    </script>
-
-    <p>画像B</p>
-    <img src="" id="preview2">
-    <input type="file" accept="image/*" id="getfile2">
-    <script>
-      var file2 = document.querySelector('#getfile2');
+      </script>
       
+      <p>画像B</p>
+      <img src="" id="preview2">
+      <input type="file" accept="image/*" id="getfile2">
+      <script>
+      var file2 = document.querySelector('#getfile2');
+
       file2.onchange = function (){
         var fileList = file2.files;
         //読み込み
@@ -41,6 +65,10 @@
           document.querySelector('#preview2').src = reader.result;
         };
       };
-    </script>
+      </script>
+    </div>
+    <div class="tab_content" id="multi_compair_content">
+      <p>hogehoge</p>
+    </div>
   </body>
 </html>
