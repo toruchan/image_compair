@@ -3,44 +3,78 @@
   <head>
     <meta charset="UTF-8">
     <title>画像表示テスト</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.6/jquery.fullpage.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.6/vendors/jquery.easings.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-scroll/1.3.2/slimscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.6/jquery.fullpage.min.js"></script>
+    <script src="js/contents.js"></script>
   </head>
   <body>
-    <p>画像A</p>
-    <img src="" id="preview1">
-    <input type="file" accept="image/*" id="getfile1">
-    <script>
-      var file1 = document.querySelector('#getfile1');
-      
-      file1.onchange = function (){
-        var fileList = file1.files;
-        //読み込み
-        var reader = new FileReader();
-        reader.readAsDataURL(fileList[0]); 
-      
-        //読み込み後
-        reader.onload = function  () {
-          document.querySelector('#preview1').src = reader.result;
-        };
-      };
-    </script>
 
-    <p>画像B</p>
-    <img src="" id="preview2">
-    <input type="file" accept="image/*" id="getfile2">
-    <script>
-      var file2 = document.querySelector('#getfile2');
+    <!-- アンカーリンク -->
+    <div id="header">
+      <ul id="nav">
+        <li data-menuanchor="section1" class="active"><a href="#firstPage">ディレクトリ作成</a></li>
+        <li data-menuanchor="section2"><a href="#secondPage">比較</a></li>
+        <li data-menuanchor="section3"><a href="#thirdPage">複数比較</a></li>
+      </ul>
+    </div>
+
+    <main id="fullpage">
+
+      <!-- ディレクトリ作成 -->
+      <div class="section">
+
+      </div>
+
+      <!-- 単発比較 -->
+      <div class="section">
+        <p>画像A</p>
+        <img src="" id="preview1">
+        <input type="file" accept="image/*" id="getfile1">
+        <script>
+          var file1 = document.querySelector('#getfile1');
       
-      file2.onchange = function (){
-        var fileList = file2.files;
-        //読み込み
-        var reader = new FileReader();
-        reader.readAsDataURL(fileList[0]); 
+          file1.onchange = function (){
+          var fileList = file1.files;
+          //読み込み
+          var reader = new FileReader();
+          reader.readAsDataURL(fileList[0]);
       
-        //読み込み後
-        reader.onload = function  () {
+          //読み込み後
+          reader.onload = function  () {
+          document.querySelector('#preview1').src = reader.result;
+          };
+          };
+        </script>
+
+        <p>画像B</p>
+        <img src="" id="preview2">
+        <input type="file" accept="image/*" id="getfile2">
+        <script>
+          var file2 = document.querySelector('#getfile2');
+
+          file2.onchange = function (){
+          var fileList = file2.files;
+          //読み込み
+          var reader = new FileReader();
+          reader.readAsDataURL(fileList[0]);
+
+          //読み込み後
+          reader.onload = function  () {
           document.querySelector('#preview2').src = reader.result;
-        };
-      };
-    </script>
-  </body>
+          };
+          };
+        </script>
+      </div>
+
+      <!-- 複数比較  -->
+      <div class="section">
+
+      </div>
+    </div>
+</body>
 </html>
